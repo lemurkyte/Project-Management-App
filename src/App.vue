@@ -1,9 +1,9 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+<div class="app-container row justify-content-center mt-3">
+  <div class="col-md-8 border">
+    <router-view/>
   </div>
-  <router-view/>
+</div>
 </template>
 
 

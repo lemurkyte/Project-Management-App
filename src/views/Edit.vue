@@ -1,22 +1,32 @@
 <template>
   <div class="card card-body mt-4">
-    <h3>Edit users</h3>
+      <router-link :to="'/'" class="btn btn-primary">Back</router-link>
+      <h3>Edit Project</h3>
     <form @submit.prevent="update">
       <div class="form-group">
-        <label>Name</label>
-        <input v-model="form.name" class="form-control" required />
+        <label for="taskDescription">Task Title</label>
+        <input type="text" v-model="form.name" class="form-control" placeholder="New task" required />
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Task Description</label>
         <input
-          v-model="form.task"
+         v-model="form.task"
           class="form-control"
           type="text"
+          placeholder="Add new task description"
           required
         />
       </div>
 
+       <div class="form-group form-check">
+        <input type="checkbox" v-model="taskCompleted"
+        id="taskCompletionStatus" class="form-check-input" />
+        <label for="taskCompletionStatus" class="form-check-label">Completed</label>
+      </div>
+      <div class="form-group">
+        <label for="">Task Creation Date: {{ taskCreationDateAndTimeOfDay}}</label>
+      </div>
       <button type="submit" class="btn btn-primary  mt-3">
         Update
       </button>

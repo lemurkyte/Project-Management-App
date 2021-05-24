@@ -5,6 +5,8 @@ import Register from '../views/Register.vue'
 import Edit from '../views/Edit.vue'
 import UserDetails from '../components/UserDetails.vue'
 
+import  firebase from "firebase/app";
+import "firebase/auth";
 const routes = [
   {
     path: '/',
@@ -17,6 +19,7 @@ const routes = [
     component: UserDetails,
     props: true
   },
+  
   {
     path: '/login',
     name: 'Login',
@@ -47,4 +50,14 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth && !await firebase.getCurrentUser()) {
+    next('/login');
+  } else {
+    next();
+  }
+})
+
 export default router
+
