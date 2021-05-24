@@ -1,9 +1,9 @@
 <template>
-  <div class="card card-body mt-4" style="width: 25%;">
+  <div class="card card-body mt-4">
     <!-- using @submit as a click function - add prevent to stop from refreshing page -->
     <form @submit.prevent="onSubmit">    
       <div class="form-group">
-        <label>Name</label>
+        <label>Title</label>
         <input 
           type="text" 
           v-model="form.name" 
@@ -13,7 +13,7 @@
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Description</label>
         <input 
           type="text"
           class="form-control"
@@ -54,5 +54,15 @@ import { createProject } from '@/firebase.js' // maybe this make error
 </script>
 
 <style lang="scss" scoped>
+.card {
+  background-color: #202125;
+}
+.btn-success {
+  background-color: #F75901;
+  border: none;
+}
 
+.btn-success:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary  {
+  background-color: #b64000;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
-<div class="app-container row justify-content-center mt-3">
-  <div class="col-md-8 border">
+<div>
+  <div>
     <router-view/>
   </div>
 </div>
@@ -38,11 +38,13 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fdfdfd;
+  background-color: #202125;
+  height: 100vh;
 }
 
 #nav {

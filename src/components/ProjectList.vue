@@ -1,12 +1,12 @@
 40 lines (38 sloc)  934 Bytes
   
 <template>
-  <div class="card mt-4">
+  <div class="list card mt-4">
     <table class="table m-0">
       <thead>
         <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Task</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -48,5 +48,10 @@ import { useLoadProjects, deleteProject  } from '@/firebase.js'
 </script>
 
 <style lang="scss" scoped>
-
+.list {
+  background-color: #202125;
+}
+td, thead {
+  color: rgb(199, 199, 199);
+}
 </style>
