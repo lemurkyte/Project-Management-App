@@ -39,7 +39,7 @@
                 <div class="form-group">
                   <input
                     type="submit"
-                    value="Login"
+                    value="login"
                     class="btn float-right login_btn"
                   />
                 </div>
