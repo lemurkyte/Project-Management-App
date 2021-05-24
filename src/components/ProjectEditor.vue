@@ -67,7 +67,23 @@ export default {
 
     onUnmounted(getProject)
 
-    
+    const updateProject = () => {
+      projectsCollection.doc(projectId).get().then(doc => {
+        if (doc.exists) {
+          doc.ref.update({
+            description: projectDescription.value,
+            completed: projectCompleted.value
+          }).then(() => {
+            console.log('Project succesfully updated!')
+            router.push('/')
+          }).catch(error => {
+            console.log('Error updating project: ', error)
+          })
+        } else {
+          console.log('No such document!')
+        }
+      })
+    }
 
     return { projectDescription, projectCompleted, projectCreationDateAndTimeOfDay, updateProject }
   }

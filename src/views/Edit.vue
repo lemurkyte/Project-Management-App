@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { reactive, computed, onMounted } from 'vue'
+import { reactive, computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getProject, updateProject } from '@/firebase.js'
 
@@ -49,6 +49,7 @@ export default {
     // Sometimes we need state that depends on other state - in Vue this is 
     // handled with component computed properties.
     const projectId = computed(() => route.params.id)
+    const projectCompleted = ref(null)
 
     const form = reactive({
       name: '',
@@ -61,18 +62,34 @@ export default {
       const project = await getProject(projectId.value)
       form.name = project.name
       form.task = project.task
+      projectCompleted.value = doc.data().completed
     })
 
     const update = async () => {
+         if (doc.exists) {
+          doc.ref.update({
+            description: projectDescription.value,
+            completed: projectCompleted.value
+          }).then(() => {
+            console.log('Project succesfully updated!')
+            router.push('/')
+          }).catch(error => {
+            console.log('Error updating project: ', error)
+          })
+        } else {
+          console.log('No such document!')
+        }
       // once user clicks submit, redirect them to home page or '/'
       await updateProject(projectId.value, {...form})
       router.push('/')
+      
       // after create - empty input field
       form.name = ''
       form.task = ''
+      
     }
 
-    return { form, update }
+    return { form, update, projectCompleted }
   }
 }
 </script>

@@ -3,7 +3,6 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Edit from '../views/Edit.vue'
-import UserDetails from '../components/UserDetails.vue'
 
 import  firebase from "firebase/app";
 import "firebase/auth";
@@ -14,6 +13,7 @@ const routes = [
     component: Home
   },
   {
+<<<<<<< HEAD
     path: '/userdetails/:id',
     name: 'UserDetails',
     component: UserDetails,
@@ -21,6 +21,8 @@ const routes = [
   },
   
   {
+=======
+>>>>>>> parent of 6cd7c80 (Stashed files)
     path: '/login',
     name: 'Login',
     component: Login
