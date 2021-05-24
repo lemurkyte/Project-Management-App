@@ -14,6 +14,7 @@ const routes = [
   },
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     path: '/userdetails/:id',
     name: 'UserDetails',
     component: UserDetails,
@@ -21,6 +22,8 @@ const routes = [
   },
   
   {
+=======
+>>>>>>> parent of 6cd7c80 (Stashed files)
 =======
 >>>>>>> parent of 6cd7c80 (Stashed files)
     path: '/login',
